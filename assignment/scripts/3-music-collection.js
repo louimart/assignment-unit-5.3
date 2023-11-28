@@ -83,22 +83,56 @@ showCollection(myCollection);
 // new function findByArtist
 function findByArtist(collection, artist) {
   // empty array to hold list of matching albums.
-  let artistMatch = [];
+  artistMatch = [];
   // for loop to check each album in the passed through collection.
   for (album of collection) {
     // checking if the album artist in the collection matches the specified artist.
     if (album.artist === artist) {
       // adding the matching album in the collection to the artistMatch array.
       artistMatch.push(album);
-      // console.log(artistMatch);
     }
   }
   // returning the results.
   return artistMatch;
 }
-// log to console the matching list.
+// testing the function with and without matching artist
 console.log(findByArtist(myCollection, 'James Vickery'));
+console.log(findByArtist(myCollection, 'Michael Jackson'));
 
+// Stretch Goal
+// search by artist and year
+function criteria(artist, year) {
+  searchCriteria = {
+    artist,
+    year,
+  }
+  return searchCriteria
+}
+// console.log(criteria('Ray Charles', 1957));
+console.log(criteria('James Vickery', 2020));
+console.log(searchCriteria)
+console.log(`Search criteria includes ${searchCriteria.artist}, ${searchCriteria.year}`);
+
+function search(collection, searchCriteria) {
+  searchMatch = [];
+  for (album of collection) {
+    console.log(album);
+    console.log(album.artist);
+    console.log(album.yearPublished);
+    if (searchCriteria.artist === album.artist && searchCriteria.year === album.yearPublished) {
+      console.log(collection.indexOf(album));
+      console.log(true);
+      searchMatch.push(album);
+    } else if (album.artist === undefined || album.year === undefined){
+      // console.log(collection.indexOf(album));
+      console.log(searchCriteria.artist);
+      console.log(searchCriteria.year);
+    } else if (searchMatch.length === 0){
+      console.log(collection.indexOf(album));
+    } else console.log('end');
+  } return searchMatch;
+}
+console.log(search(myCollection, searchCriteria));
 
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
