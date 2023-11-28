@@ -4,7 +4,7 @@ console.log('***** Music Collection *****')
 // empty array named myCollection created.
 let myCollection = [];
 
-// collection objects for reference
+// album objects for reference
 let cd1 = {
   title: 'First Love',
   artist: 'Utada Hikaru',
@@ -39,8 +39,15 @@ let cd6 = {
   yearPublished: 2019,
 }
 
+let cd7 = {
+  title: 'Overture',
+  artist: 'James Vickery',
+  yearPublished: 2020,
+}
+
 // new function addToCollection created.
-function addToCollection(collection, title, artist, yearPublished){
+function addToCollection(collection, title, artist, yearPublished) {
+  // console.log(`running addToCollection...`)
   if (collection === myCollection) {
     let collection = {
       title,
@@ -48,8 +55,8 @@ function addToCollection(collection, title, artist, yearPublished){
       yearPublished,
     }
     myCollection.push(collection);
-    return collection;
   }
+  return collection;
 }
 
 // entering myCollection information using the addtoCollection function.
@@ -59,18 +66,39 @@ console.log(addToCollection(myCollection, cd3.title, cd3.artist, cd3.yearPublish
 console.log(addToCollection(myCollection, cd4.title, cd4.artist, cd4.yearPublished));
 console.log(addToCollection(myCollection, cd5.title, cd5.artist, cd5.yearPublished));
 console.log(addToCollection(myCollection, cd6.title, cd6.artist, cd6.yearPublished));
+console.log(addToCollection(myCollection, cd7.title, cd7.artist, cd7.yearPublished));
 
 // displaying the updated myCollection.
 console.log(myCollection);
 
 // create showCollection
 function showCollection(collection) {
+  // console.log(`running showCollection...`)
   for (album of collection) {
     console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}.`);
   }
 }
-
 showCollection(myCollection);
+
+// new function findByArtist
+function findByArtist(collection, artist) {
+  // empty array to hold list of matching albums.
+  let artistMatch = [];
+  // for loop to check each album in the passed through collection.
+  for (album of collection) {
+    // checking if the album artist in the collection matches the specified artist.
+    if (album.artist === artist) {
+      // adding the matching album in the collection to the artistMatch array.
+      artistMatch.push(album);
+      // console.log(artistMatch);
+    }
+  }
+  // returning the results.
+  return artistMatch;
+}
+// log to console the matching list.
+console.log(findByArtist(myCollection, 'James Vickery'));
+
 
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
