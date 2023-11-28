@@ -4,10 +4,73 @@ console.log('***** Music Collection *****')
 // empty array named myCollection created.
 let myCollection = [];
 
+// collection objects for reference
+let cd1 = {
+  title: 'First Love',
+  artist: 'Utada Hikaru',
+  yearPublished: 1999,
+}
+let cd2 = {
+  title: 'Songs That Made Me Feel',
+  artist: 'James Vickery',
+  yearPublished: 2021,
+}
+let cd3 = {
+  title: 'Songs in the Key of Life',
+  artist: 'Stevie Wonder',
+  yearPublished: 1976,
+}
 
+let cd4 = {
+  title: 'Life is a Song Worth Singing',
+  artist: 'Teddy Pendergrass',
+  yearPublished: 1978,
+}
 
+let cd5 = {
+  title: 'What\'s Going On',
+  artist: 'Marvin Gaye',
+  yearPublished: 1971,
+}
 
+let cd6 = {
+  title: 'Building Balance',
+  artist: 'Allen Stone',
+  yearPublished: 2019,
+}
 
+// new function addToCollection created.
+function addToCollection(collection, title, artist, yearPublished){
+  if (collection === myCollection) {
+    let collection = {
+      title,
+      artist,
+      yearPublished,
+    }
+    myCollection.push(collection);
+    return collection;
+  }
+}
+
+// entering myCollection information using the addtoCollection function.
+console.log(addToCollection(myCollection, cd1.title, cd1.artist, cd1.yearPublished));
+console.log(addToCollection(myCollection, cd2.title, cd2.artist, cd2.yearPublished));
+console.log(addToCollection(myCollection, cd3.title, cd3.artist, cd3.yearPublished));
+console.log(addToCollection(myCollection, cd4.title, cd4.artist, cd4.yearPublished));
+console.log(addToCollection(myCollection, cd5.title, cd5.artist, cd5.yearPublished));
+console.log(addToCollection(myCollection, cd6.title, cd6.artist, cd6.yearPublished));
+
+// displaying the updated myCollection.
+console.log(myCollection);
+
+// create showCollection
+function showCollection(collection) {
+  for (album of collection) {
+    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}.`);
+  }
+}
+
+showCollection(myCollection);
 
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
